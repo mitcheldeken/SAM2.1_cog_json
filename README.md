@@ -7,8 +7,8 @@ sudo chmod +x /usr/local/bin/cog
 ```
 Clone this directory with:
 ```
-git clone https://github.com/mitcheldeken/SAM_cog_json.git
-cd SAM_cog_json
+git clone https://github.com/mitcheldeken/SAM2.1_cog_json.git
+cd SAM2.1_cog_json
 ```
 <!-- Download model weights:
 ```
