@@ -12,6 +12,9 @@ import numpy as np
 from PIL import Image
 from typing import List
 import json
+from hydra.core.global_hydra import GlobalHydra
+from hydra.core.hydra_config import HydraConfig
+from hydra import initialize, compose
 # Add /tmp/sa2 to sys path
 sys.path.extend("/sa2")
 from sam2.build_sam import build_sam2
@@ -35,6 +38,12 @@ class Predictor(BasePredictor):
         # Get path to model
         model_cfg = "sam2.1_hiera_l.yaml"
         model_path = WEIGHTS_CACHE + "/" +MODEL_NAME
+
+                # Initialize Hydra with the correct config path
+        if GlobalHydra().is_initialized():
+            GlobalHydra.instance().clear()
+        initialize(config_path="/sa2/sam2_configs", version_base=None)
+
         # Download weights
         if not os.path.exists(model_path):
             download_weights(WEIGHTS_URL, model_path)
