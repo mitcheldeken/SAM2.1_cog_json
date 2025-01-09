@@ -16,6 +16,7 @@ from hydra.core.global_hydra import GlobalHydra
 from hydra.core.hydra_config import HydraConfig
 from hydra import initialize, compose
 # Add /tmp/sa2 to sys path
+sys.path.extend("/sa2")
 from sam2.build_sam import build_sam2
 from sam2.automatic_mask_generator import SAM2AutomaticMaskGenerator
 
