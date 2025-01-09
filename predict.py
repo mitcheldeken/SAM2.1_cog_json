@@ -42,7 +42,7 @@ class Predictor(BasePredictor):
                 # Initialize Hydra with the correct config path
         if GlobalHydra().is_initialized():
             GlobalHydra.instance().clear()
-        initialize(config_path="/sa2/sam2_configs", version_base=None)
+        initialize(config_path="sam2_configs", version_base=None)
 
         # Download weights
         if not os.path.exists(model_path):
